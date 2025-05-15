@@ -6,7 +6,10 @@
     <session-factory>
 
         <property name = "hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
-
+        <property name="hibernate.connection.url">jdbc:mariadb://fdo-db:3306/emdb?useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">testpass</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
         <!--
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
