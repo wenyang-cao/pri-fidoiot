@@ -26,7 +26,7 @@ RUN chown -R fdo:fdo /home/fdo
 USER fdo
 
 # Configure and start all-in-one
-CMD ["/usr/lib/jvm/java-17-openjdk-amd64/bin/java", "-jar", "aio.jar"]
+CMD ["/usr/lib/jvm/java-17-openjdk-amd64/bin/java", "-cp", "aio.jar:/home/fdo/lib/*", "org.fidoalliance.fdo.sample.AioApp"]
 
 #Docker image healthcheck
 HEALTHCHECK --interval=30s --timeout=30s CMD wget --spider -Y off http://localhost:8080/health || exit 1
