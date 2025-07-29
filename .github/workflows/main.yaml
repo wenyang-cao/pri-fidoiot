@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: scm checkout
         uses: actions/checkout@v4
@@ -49,7 +49,24 @@ jobs:
           sed -i '/^innodb/d' ../db/custom/config-file.cnf
           cd ${{ github.workspace }}/test-fidoiot
           export TEST_DIR=$PWD
+          cd binaries/pri-fidoiot/aio
+          docker compose up -d --build || docker-compose up -d --build
+          cd ../../..
+          sleep 10
           mvn clean test -Dgroups=fdo_pri_smoketest
+      - name: Debug after test failure
+        if: failure()
+        run: |
+          cd ${{ github.workspace }}/test-fidoiot
+          echo "=== Docker containers after failure ==="
+          docker ps -a
+          echo "=== Docker logs ==="
+          for container in $(docker ps -a -q); do
+            echo "--- Logs for container $container ---"
+            docker logs $container 2>&1 | tail -50
+          done
+          echo "=== Port 8080 status ==="
+          netstat -tulpn | grep 8080 || echo "Port 8080 not in use"
       - name: archive artifacts
         uses: actions/upload-artifact@v4
         with:

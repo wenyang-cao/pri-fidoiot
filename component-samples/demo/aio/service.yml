@@ -1,7 +1,8 @@
 hibernate-properties:
   hibernate.connection.username: $(db_user)
   hibernate.connection.password: $(db_password)
-  hibernate.connection.url: jdbc:mariadb://host.docker.internal:3306/emdb?useSSL=$(useSSL)
+  # SSL not working
+  hibernate.connection.url: jdbc:mariadb://fdo-db:3306/emdb?useSSL=false 
   hibernate.connection.requireSSL: $(requireSSL)
   hibernate.connection.autoReconnect: true
   hibernate.dialect: org.hibernate.dialect.MariaDBDialect
