@@ -11,7 +11,6 @@ system-properties:
   app-data.dir: ./app-data
   application.version: 1.1.9
   server.api.user: $(api_user)
-  # server.api.password: $(api_password)
   server.api.password: "null"
   service.name: "All-in-one demo"
   javax.net.ssl.keyStorePassword: default
@@ -115,7 +114,7 @@ cwt:
 
 workers:
   - org.fidoalliance.fdo.protocol.StandardLogProvider
-  # - org.fidoalliance.fdo.protocol.DebugExceptionConsumer
+  #- org.fidoalliance.fdo.protocol.DebugExceptionConsumer
   - org.fidoalliance.fdo.protocol.StandardExceptionConsumer
   - org.fidoalliance.fdo.protocol.StandardMessageDispatcher
   - org.fidoalliance.fdo.protocol.StandardCryptoService
