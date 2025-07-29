@@ -55,8 +55,8 @@ jobs:
         run: |
           mkdir -p test-fidoiot/binaries/pri-fidoiot
           cp -r component-samples/demo/* test-fidoiot/binaries/pri-fidoiot
-          cp component-samples/demo/aio/Dockerfile test-fidoiot/binaries/pri-fidoiot/aio/
-          cp component-samples/demo/aio/hibernate.cfg.xml test-fidoiot/hibernate.cfg.xml
+          # cp component-samples/demo/aio/Dockerfile test-fidoiot/binaries/pri-fidoiot/aio/
+          # cp component-samples/demo/aio/hibernate.cfg.xml test-fidoiot/hibernate.cfg.xml
           cp -r test-fidoiot/binaries/pri-fidoiot/device/* test-fidoiot/
           cd test-fidoiot/binaries/pri-fidoiot/scripts
           bash demo_ca.sh
