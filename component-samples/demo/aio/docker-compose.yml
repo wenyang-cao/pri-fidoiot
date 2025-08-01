@@ -5,24 +5,6 @@ version: "3.3"
 
 services:
 
-  fdo-db:
-    image: mariadb:11.4.2
-    container_name: fdo-db
-    restart: always
-    ports:
-      - 3306:3306
-    environment:
-      - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db_password.txt
-      - MARIADB_DATABASE=emdb
-    secrets:
-      - ca-cert.pem
-      - server-cert.pem
-      - server-key.pem
-      - db_password.txt
-    volumes:
-      - ./app-data:/var/lib/mysql
-      - ./custom:/etc/mysql/conf.d
-
   pri-fdo-aio:
     image: pri-fdo-aio
     container_name: pri-fdo-aio
