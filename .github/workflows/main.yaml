@@ -45,7 +45,7 @@ jobs:
           chmod -R 777 secrets/
           cp -r service.env secrets/ ../aio/
           cp -r secrets/ ../db/
-          echo "useSSL=false" >> ../aio/service.env
+          # echo "useSSL=false" >> ../aio/service.env
           sed -i '/<security-constraint>/,/<.security-constraint>/d' ../aio/WEB-INF/web.xml
           sed -i '/^innodb/d' ../db/custom/config-file.cnf
           cd ${{ github.workspace }}/test-fidoiot
