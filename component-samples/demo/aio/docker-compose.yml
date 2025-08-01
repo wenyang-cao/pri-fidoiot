@@ -35,9 +35,6 @@ services:
     mem_limit: 500m
     mem_reservation: 200m
     cpu_shares: 1024
-    depends_on:
-      - fdo-db
-    command: sh -c "sleep 10 && java -jar /home/fdo/aio.jar"
 
 secrets:
   ca-cert.pem:
