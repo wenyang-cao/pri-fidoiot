@@ -27,7 +27,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: kroczi/test-fidoiot
-          ref: debug-ci
+          ref: fix_docker_compose_command
+          path: test-fidoiot
       - name: Add host to /etc/hosts
         run: |
           sudo echo "127.0.0.1 host.docker.internal" | sudo tee -a /etc/hosts
