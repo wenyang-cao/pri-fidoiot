@@ -26,9 +26,8 @@ jobs:
       - name: checkout test-fidoiot
         uses: actions/checkout@v4
         with:
-          repository: fido-device-onboard/test-fidoiot
-          ref: master
-          path: test-fidoiot
+          repository: kroczi/test-fidoiot
+          ref: debug-ci
       - name: Add host to /etc/hosts
         run: |
           sudo echo "127.0.0.1 host.docker.internal" | sudo tee -a /etc/hosts
